@@ -1,6 +1,7 @@
 import streamlit as st
 import helper as he
 
+
 st.markdown("""
 <style> 
 h1{
@@ -11,6 +12,7 @@ h1{
 
     
 
+model = he.genai.GenerativeModel('gemini-1.5-flash')
 
 def main():
     
@@ -21,7 +23,9 @@ def main():
 
     prompt = st.chat_input("Say something")
     if prompt:
-        st.write(f"User has sent the following prompt: {prompt}")
+        response = model.generate_content(prompt)
+        he.to_markdown(response)
+
 
 
 main()
