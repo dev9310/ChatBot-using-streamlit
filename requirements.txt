@@ -1,5 +1,5 @@
 ipython==8.12.3
-protobuf==5.27.2
+protobuf
 streamlit==1.36.0
 textwrap
 

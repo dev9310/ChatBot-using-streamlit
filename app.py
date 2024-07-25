@@ -1,11 +1,11 @@
 import streamlit as st
 import helper 
-import pathlib
+# import pathlib
 
 import google.generativeai as genai
 
-from IPython.display import display
-from IPython.display import Markdown
+# from IPython.display import display
+# from IPython.display import Markdown
 genai.configure(api_key='AIzaSyCi2c-H5RHN-OO4XOa3lCCcqsL_lxT6fNg')
 
 
