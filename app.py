@@ -27,15 +27,23 @@ def main():
 
     messages = st.container()
     prompt = st.chat_input("Say something")
+
+    def stream_data(txt):
+        for word in txt.split(" "):
+            yield word + " "
+            time.sleep(0.05)
+        
+
+
     if prompt:
         messages.chat_message("user").write(prompt)
         response = model.generate_content(prompt)
-        
+        res = helper.to_markdown(response.text)
         # while response :
         #     st.spinner('Wait for a sec...!')
-        st.chat_message('assistant').write(helper.to_markdown(response.text))
+        st.chat_message("assistant").write_stream(stream_data(res))
 
 
-
+import time
 
 main()
