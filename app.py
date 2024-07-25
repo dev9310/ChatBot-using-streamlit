@@ -12,6 +12,10 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 
 with st.sidebar:
     st.title("Welcome :sunglasses:")
+    # messages =st.container(height=500)
+    # if prompt1 := st.chat_input("Say something"):
+    #     messages.chat_message("user").write(prompt1)
+    #     messages.chat_message("assistant").write(f"Echo: {prompt1}")
 
 
 def main():
@@ -21,10 +25,15 @@ def main():
     #     if 'generateContent' in m.supported_generation_methods:
     #         st.text(m.name)
 
+    messages = st.container()
     prompt = st.chat_input("Say something")
     if prompt:
+        messages.chat_message("user").write(prompt)
         response = model.generate_content(prompt)
-        st.markdown(helper.to_markdown(response.text))
+        
+        # while response :
+        #     st.spinner('Wait for a sec...!')
+        st.chat_message('assistant').write(helper.to_markdown(response.text))
 
 
 
