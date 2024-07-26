@@ -24,8 +24,3 @@ def get_intro():
   
 """
 
-def stream_data(txt ,sleep_time=0.05):
-    for word in txt.split(" "):
-        yield word + " "
-        time.sleep(sleep_time)
-
