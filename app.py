@@ -4,7 +4,6 @@ import helper
 import google.generativeai as genai
 # from IPython.display import display
 # from IPython.display import Markdown
-import streamlit.components.v1 as components
 
 
 st.markdown(helper.get_css() , unsafe_allow_html=True)
