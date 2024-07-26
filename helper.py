@@ -7,7 +7,7 @@ def to_markdown(text):
 def get_css():
   css =  """
   <style> 
-  h1{
+  h1,h2{
     text-align: center; 
   }
   </style>
