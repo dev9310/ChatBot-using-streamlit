@@ -1,13 +1,12 @@
 import streamlit as st
 import helper 
 import google.generativeai as genai
+import time
 
 st.markdown(helper.get_css() , unsafe_allow_html=True)
 
 genai.configure(api_key='AIzaSyCi2c-H5RHN-OO4XOa3lCCcqsL_lxT6fNg')
 model = genai.GenerativeModel('gemini-1.5-flash')
-
-
 
 with st.sidebar:
     st.markdown("<h1>Welcome</h1>",unsafe_allow_html=True)
@@ -45,8 +44,7 @@ def main():
     messages = st.container()
     prompt = st.chat_input("Say something")
 
-    if prompt:
-        
+    if prompt:        
         messages.chat_message("human").write(prompt)
         response = model.generate_content(prompt)
         res = helper.to_markdown(response.text)
@@ -55,7 +53,7 @@ def main():
         st.chat_message("ai").write_stream(stream_data(res))
         create_recent_topic(prompt)
 
-import time
+
 
 
 
