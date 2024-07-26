@@ -1,10 +1,6 @@
 import streamlit as st
 import helper 
-# import pathlib
 import google.generativeai as genai
-# from IPython.display import display
-# from IPython.display import Markdown
-
 
 st.markdown(helper.get_css() , unsafe_allow_html=True)
 
