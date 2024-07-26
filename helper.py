@@ -1,4 +1,5 @@
 import textwrap
+import time
 
 # Converting response into markdown text
 def to_markdown(text):
@@ -22,3 +23,9 @@ def get_intro():
   return """
   
 """
+
+def stream_data(txt ,sleep_time=0.05):
+    for word in txt.split(" "):
+        yield word + " "
+        time.sleep(sleep_time)
+
