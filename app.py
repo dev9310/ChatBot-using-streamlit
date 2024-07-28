@@ -35,6 +35,16 @@ def create_recent_topic(topic):
             st.sidebar.text(i)
             container.chat_message("user").write_stream(stream_data(i,0.6))
 
+
+
+def create_user_message(prompt):
+
+    ...
+
+def create_bot_message(res):
+    ...
+
+
 def intro():
     st.markdown(helper.get_intro())
 
@@ -46,11 +56,16 @@ def main():
     messages = st.container()
     prompt = st.chat_input("Say something")
 
-    if prompt:        
+    if prompt:      
+
+        create_user_message(prompt)
+        
+
         messages.chat_message("human").write(prompt)
         response = model.generate_content(prompt)
         res = helper.to_markdown(response.text)
-        
+        create_bot_message(res)
+
         st.chat_message("ai").write_stream(stream_data(res))
         create_recent_topic(prompt)
 
