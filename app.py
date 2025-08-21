@@ -4,7 +4,7 @@ import google.generativeai as genai
 import time
 
 if "key" not in st.session_state:
-    st.session_state.key = 'AIzaSyCi2c-H5RHN-OO4XOa3lCCcqsL_lxT6fNg'
+    st.session_state.key = 'AIzaSyDsl8MupXw2eH0ICr5Pe6F13beUmLDT5XY'
 
 genai.configure(api_key=st.session_state.key)
 model = genai.GenerativeModel('gemini-1.5-flash')
